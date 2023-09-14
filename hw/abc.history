@@ -1,0 +1,6 @@
+read mul.blif
+balance
+balance; rewrite -l; rewrite -lz; balance; rewrite -lz; balance
+print_stats
+write_blif result.blif
+cec mul.blif result.blif
