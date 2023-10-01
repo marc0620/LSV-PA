@@ -1,0 +1,18 @@
+.model xor
+.inputs a b
+.outputs y
+.names a b y
+01 1
+10 1
+.end
+
+
+.model xor4
+.inputs a b c d
+.outputs y
+
+.subckt xor a=a b=b y=m0
+.subckt xor a=m0 b=c y=m1
+.subckt xor a=m1 b=d y=y
+
+.Abc_NtkForEachNode

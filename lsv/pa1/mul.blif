@@ -1,0 +1,36 @@
+.model fa
+.inputs a b
+.outputs d c
+.names a b d
+10 1
+01 1
+
+.names a b c
+11 1
+.end
+
+.model mul
+.inputs a0 a1 b0 b1
+.outputs d0 d1 d2 d3 
+
+
+.names a0 b0 d0
+11 1
+
+.names a1 b0  m0
+11 1
+
+.names a0 b1 m1
+11 1
+
+.names a1 b1 m2
+11 1
+
+.names d4
+1
+
+.subckt fa a=m0 b=m1 c=m3 d=d1
+.subckt fa a=m2 b=m3 c=d3 d=d2
+
+
+.end
