@@ -190,6 +190,10 @@ int Lsv_sym_sat(Abc_Frame_t* pAbc, int argc, char** argv){
     tar1=tar2;
     tar2=temp;
   }
+  if(tar1==tar2){
+    Abc_Print(-2, "symmetric\n");
+    return 0;
+  }
   pPo = Abc_NtkPo(pNtk, func);
   pRoot=Abc_ObjFanin0(pPo);
   //Abc_Print(-2, "type pPo: %d, type root: %d\n", pPo->Type ,pRoot->Type);
