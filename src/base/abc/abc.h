@@ -427,10 +427,13 @@ static inline int         Abc_LatchIsInitDc( Abc_Obj_t * pLatch )    { assert(Ab
 static inline int         Abc_LatchInit( Abc_Obj_t * pLatch )        { assert(Abc_ObjIsLatch(pLatch)); return (int)(ABC_PTRINT_T)pLatch->pData;                     }
 
 // global BDDs of the nodes
+//return global bdd attr
 static inline void *      Abc_NtkGlobalBdd( Abc_Ntk_t * pNtk )          { return Vec_PtrEntry(pNtk->vAttrs, VEC_ATTR_GLOBAL_BDD);                                   }
 static inline void *      Abc_NtkGlobalBddMan( Abc_Ntk_t * pNtk )       { return Vec_AttMan( (Vec_Att_t *)Abc_NtkGlobalBdd(pNtk) );                                 }
 static inline void **     Abc_NtkGlobalBddArray( Abc_Ntk_t * pNtk )     { return Vec_AttArray( (Vec_Att_t *)Abc_NtkGlobalBdd(pNtk) );                               }
+//
 static inline void *      Abc_ObjGlobalBdd( Abc_Obj_t * pObj )          { return Vec_AttEntry( (Vec_Att_t *)Abc_NtkGlobalBdd(pObj->pNtk), pObj->Id );               }
+// record the bdd node representing primary input
 static inline void        Abc_ObjSetGlobalBdd( Abc_Obj_t * pObj, void * bF )   { Vec_AttWriteEntry( (Vec_Att_t *)Abc_NtkGlobalBdd(pObj->pNtk), pObj->Id, bF );      }
 
 // MV variables of the nodes
